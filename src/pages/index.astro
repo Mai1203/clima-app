@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import WeatherCard from '../components/molecules/WeatherCard.astro';
 import Title from '../components/atoms/Title.astro';
+import ChatBotIsland from '../islands/ChatBotIsland.jsx';
 
 // Example weather data (in a real app, this would come from an API)
 const weatherData = [
@@ -42,6 +43,7 @@ const features = [
 ---
 
 <Layout>
+  <ChatBotIsland client:load />
   <section class="text-center mb-12">
     <Title class="text-4xl mb-4">El clima en tu ciudad</Title>
     <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
@@ -49,6 +51,7 @@ const features = [
     </p>
   </section>
 
+  </section>
   <section class="mb-16">
     <Title level={2} class="text-2xl mb-8">Ciudades Populares</Title>
     <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
