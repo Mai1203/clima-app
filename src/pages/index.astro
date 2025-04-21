@@ -1,0 +1,74 @@
+---
+import Layout from '../layouts/Layout.astro';
+import WeatherCard from '../components/molecules/WeatherCard.astro';
+import Title from '../components/atoms/Title.astro';
+
+// Example weather data (in a real app, this would come from an API)
+const weatherData = [
+  {
+    location: 'New York',
+    temperature: 22,
+    condition: 'Soleado',
+    icon: 'sun'
+  },
+  {
+    location: 'London',
+    temperature: 18,
+    condition: 'Nublado',
+    icon: 'cloud'
+  },
+  {
+    location: 'Tokyo',
+    temperature: 25,
+    condition: 'Lluvioso',
+    icon: 'rain'
+  }
+];
+
+const features = [
+  {
+    title: 'Actualizaciones en tiempo real',
+    description: 'Obtenga la información meteorológica más reciente a medida que sucede'
+  },
+  {
+    title: 'Cobertura global',
+    description: 'Datos meteorológicos de ciudades de todo el mundo.'
+  },
+  {
+    title: 'Previsiones detalladas',
+    description: 'Previsiones meteorológicas y condiciones meteorológicas completas'
+  }
+];
+---
+
+<Layout>
+  <section class="text-center mb-12">
+    <Title class="text-4xl mb-4">El clima en tu ciudad</Title>
+    <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+      Manténgase informado sobre las condiciones climáticas en todo el mundo con nuestro sistema de seguimiento meteorológico en tiempo real.
+    </p>
+  </section>
+
+  <section class="mb-16">
+    <Title level={2} class="text-2xl mb-8">Ciudades Populares</Title>
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {weatherData.map(city => (
+        <WeatherCard {...city} />
+      ))}
+    </div>
+  </section>
+
+  <section class="bg-gray-50 dark:bg-gray-900 -mx-4 px-4 py-12">
+    <div class="container mx-auto">
+      <Title level={2} class="text-2xl mb-8 text-center">¿Por qué elegir Clima App?</Title>
+      <div class="grid md:grid-cols-3 gap-8">
+        {features.map(feature => (
+          <div class="text-center">
+            <h3 class="text-xl font-bold mb-2">{feature.title}</h3>
+            <p class="text-gray-600 dark:text-gray-400">{feature.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

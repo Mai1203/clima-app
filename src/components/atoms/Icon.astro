@@ -1,0 +1,30 @@
+---
+interface Props {
+  name: string;
+  class?: string;
+}
+
+const { name, class: className } = Astro.props;
+
+// Simple weather icons mapping
+const icons = {
+  sun: "M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z",
+  cloud: "M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z",
+  rain: "M20 15.243V14a6 6 0 00-6-6h-1.172a6 6 0 00-5.656-4h-.343a6 6 0 00-5.657 4H1v1.243a6 6 0 004.757 5.657l-.757.757v1h12v-1l-.757-.757A6 6 0 0020 15.243z"
+};
+---
+
+<svg 
+  xmlns="http://www.w3.org/2000/svg" 
+  class:list={["h-6 w-6", className]} 
+  fill="none" 
+  viewBox="0 0 24 24" 
+  stroke="currentColor"
+>
+  <path 
+    stroke-linecap="round" 
+    stroke-linejoin="round" 
+    stroke-width="2" 
+    d={icons[name] || icons.sun} 
+  />
+</svg>

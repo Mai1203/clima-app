@@ -1,0 +1,14 @@
+---
+import ThemeToggle from '../../islands/ThemeToggle';
+import Icon from '../atoms/Icon.astro';
+---
+
+<header class="w-full bg-white dark:bg-gray-800 shadow-sm">
+  <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+    <div class="flex items-center space-x-2">
+      <Icon name="sun" class="h-8 w-8 text-blue-500" />
+      <h1 class="text-xl font-bold">Clima App</h1>
+    </div>
+    <ThemeToggle client:load />
+  </div>
+</header>

@@ -1,0 +1,24 @@
+---
+import Icon from '../atoms/Icon.astro';
+import Title from '../atoms/Title.astro';
+
+interface Props {
+  temperature: number;
+  condition: string;
+  location: string;
+  icon: string;
+}
+
+const { temperature, condition, location, icon } = Astro.props;
+---
+
+<div class="p-6 rounded-lg bg-white dark:bg-gray-800 shadow-lg">
+  <div class="flex items-center justify-between">
+    <div>
+      <Title level={2} class="text-xl mb-1">{location}</Title>
+      <p class="text-gray-500 dark:text-gray-400">{condition}</p>
+    </div>
+    <Icon name={icon} class="h-12 w-12 text-blue-500" />
+  </div>
+  <p class="text-4xl font-bold mt-4">{temperature}°C</p>
+</div>
