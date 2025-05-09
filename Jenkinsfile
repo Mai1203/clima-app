@@ -4,18 +4,27 @@ pipeline {
     stages {
         stage('Inicio') {
             steps {
-                echo '¡Pipeline iniciado correctamente!'
+                echo 'Iniciando pruebas para clima-app...'
             }
         }
-        stage('Construcción') {
+
+        stage('Instalación') {
             steps {
-                echo 'Ejecutando fase de construcción...'
+                bat 'npm install'
             }
         }
+
+        stage('Pruebas') {
+            steps {
+                bat 'npm test'
+            }
+        }
+
         stage('Final') {
             steps {
-                echo 'Pipeline finalizado con éxito.'
+                echo 'Pipeline ejecutado correctamente.'
             }
         }
     }
 }
+
