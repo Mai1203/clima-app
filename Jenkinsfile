@@ -20,10 +20,25 @@ pipeline {
             }
         }
 
+        stage('Build') {
+            steps {
+                sh 'npm run build'
+            }
+        }
+
         stage('Final') {
             steps {
                 echo 'Pipeline ejecutado correctamente.'
             }
+        }
+    }
+
+    post {
+        success {
+            echo 'Pipeline ejecutado correctamente.'
+        }
+        failure {
+            echo 'Pipeline falló.'
         }
     }
 }
